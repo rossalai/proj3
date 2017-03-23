@@ -6,6 +6,7 @@
  */
 
 #include "planet.h"
+#include <cmath>
 
 planet::planet() {
     this->mass=1;
@@ -35,9 +36,9 @@ double planet::distance(planet other_planet){
     y1=this->x[1];
     z1=this->x[2];
     
-    x2=other_planet->get_position()[0];
-    y2=other_planet->get_position()[1];
-    z2=other_planet->get_position()[2];
+    x2=other_planet.get_position()[0];
+    y2=other_planet.get_position()[1];
+    z2=other_planet.get_position()[2];
     
     xx=x1-x2;
     yy=y1-y2;

@@ -17,11 +17,10 @@ public:
     double* get_position();
     double* get_velocity();
     double distance(planet other_planet);
-private:
-    double mass;
     double x[3];
     double v[3];
-
+private:
+    double mass;
 };
 
 #endif	/* PLANET_H */
