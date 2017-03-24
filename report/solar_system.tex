@@ -1,0 +1,81 @@
+\documentclass[prc,amsmath,twocolumn,superscriptaddress]{revtex4}
+%\bibliographystyle{prsty}
+\usepackage{gensymb}
+\usepackage{graphicx,color}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{verbatim}
+\usepackage{natbib}
+
+
+\begin{document}
+
+  \newcommand {\nc} {\newcommand}
+  \nc {\Sec} [1] {Sec.~\ref{#1}}
+  \nc {\IR} [1] {\textcolor{red}{#1}} 
+
+\title{PHY905 Project 3 - Solar System}
+
+
+\author{Alaina~Ross}
+
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+ \noindent {\bf Background:} %Perhaps the most common potential used in quantum mechanics is that of the three dimensional harmonic oscillator. This is because there are analytic solutions which can easily be calculated. However, the introduction of an additional particle and a Coulomb interaction quickly makes the problem more difficult.
+\\ {\bf Purpose:} %The goal of this work is to solve numerically the aforementioned problem. We aim to study the numerical accuracy and performance of the algorithm as well as determine the effect of different oscillator shapes on the final wave functions.
+\\ {\bf Method:} %We approximate the derivatives in the Schr{\"o}dinger equation in order to cast the equations as a matrix eigenvalue problem and use the Jacobi rotation algorithm to calculate the eigenvalues and eigenvectors. In addition, we use a more sophisticated algorithm to compare computation time.
+\\ {\bf Results:} %We find our calculated eigenvalues are consistent with analytical solutions for matrix sizes around $N=400$. In addition, we find the Jacobi algorithm is very inefficient, especially for the large matrix sizes needed for our desired accuracy.
+ \\ {\bf Conclusions:} %Our results demonstrate that the effect of including a Coulomb repulsion interaction is a more diffuse wave function as the electrons are repelled from one another. On the other hand, our results alse demonstrate that as the oscillator potential becomes stronger the electrons are forced closer to one another.
+\end{abstract}
+
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{introduction}
+\label{intro}
+
+\section{methods}
+\label{methods}
+
+%\begin{figure}[t]
+%\includegraphics[scale=0.33]{error_pmax.pdf}
+%\caption{Relative average error in $\lambda_n$ as a function of $\rho_{max}$}
+%\label{err}
+%\end{figure}
+
+\section{results}
+\label{results}
+
+%\begin{table}[t]
+%\centering
+%\begin{tabular}{|c|c|c|c|c|}
+%\hline
+%$\lambda_n$&Jacobi & Analytic & Jacobi & Analytic\\
+%\hline
+%$\lambda_0$&2.9992&3&0.3499&0.35\\
+%\hline
+%\end{tabular}
+%\caption{Comparison of eigenvalues for the analytic methods and the Jacobi method. For the non-interacting case N = 100 and $\rho_{max}$=5. For the interacting case N = 200$\rho_{max}=20$ and $\omega_r$ = 0.05. Analytic values for the interacting case are from~\cite{interact}.}
+%\label{eigen}
+%\end{table}
+
+\section{conclusions}
+\label{conc}
+
+%In summary, the goal of this work was to calculate numerically the energies and wave functions corresponding to two electrons in a harmonic oscillator potential with a repulsive Coulomb interaction. The second derivative in the Schr{\"o}dinger equation is approximated using a three point formula, which turns the problem into a matrix eigenvalue problem that is solved via the Jacobi algorithm.
+
+%The Jacobi algorithm is first analyzed without the Coulomb interaction to determine the numerical accuracy and performance. We found that in order to have agreement with analytic solutions for the first three eigenvalues up to four decimal places required a matrix size of roughly 400. However, we find that the Jacobi algorithm does not perform nearly as well as other more sophisticated algorithms, especially for the matrix sizes needed for the desired level of accuracy.
+
+%Next, we include the Coulomb interaction and find that the resulting eigenvalues have good agreement with the analytic solutions given in~\cite{interact}. In addition, we plot the probability distributions for various harmonic oscillator strengths and find that as the potential is increased the electrons are forced closer together. Finally, we find that as expected, the addition of the Coulomb repulsion term causes the electrons to be forced further apart.
+
+%There are a number of ways that our code can be improved upon, for example there are more sophisticated algorithms to calculate eigenvalues (such as Lanczo's method~\cite{lan}) which would likely prove to be more efficient. In addition, the Jacobi algorithm doesn't require that our matrix is already tridiagonal, so there are likely modifications or alternatives that could increase performance by taking advantage of the symmetries of the problem. Alternatively, while the Jacobi algorithm is not the most efficient, the use of parallelizations such as OpenMP as done in~\cite{cmse} could greatly improve the performance. Finally, we have constrained this work to $\ell=0$ and have disregarded the center of mass wave function in the analysis, both of which could add important insights to the problem. 
+
+%Overall, we have confirmed our physical intuition of the role of the Coulomb interaction and solved a difficult analytic problem numerically with good precision but poor performance. These results illustrate the power of using numerical methods but also the importance of choosing the correct method for the given problem.
+
+\bibliography{solar}
+\end{document}
+
