@@ -9,6 +9,7 @@
 #include <cmath>
 
 planet::planet() {
+    this->name="sun";
     this->mass=1;
     this->x[0]=0;
     this->x[1]=0;
@@ -18,7 +19,8 @@ planet::planet() {
     this->v[2]=0;
 }
 
-planet::planet(double M,double x,double y,double z,double vx, double vy,double vz) {
+planet::planet(string name,double M,double x,double y,double z,double vx, double vy,double vz) {
+    this->name=name;
     this->mass=M;
     this->x[0]=x;
     this->x[1]=y;

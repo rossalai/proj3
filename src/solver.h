@@ -20,9 +20,11 @@ public:
     void add_planet(planet p);
     virtual ~solver();
     void solve(int n, double h);
+    double calc_force(planet p);
 private:
     string method;
     vector<planet> planets;
+    int num_planets;
 };
 
 
