@@ -1,4 +1,4 @@
-/* 
+/* Project: 905 Project 3
  * File:   planet.h
  * Author: alaina
  *
@@ -24,6 +24,7 @@ public:
     double x[3];
     double v[3];
     string name;
+    double acc; //acc=a/r
 private:
     double mass;
 };

@@ -9,6 +9,8 @@
 #include <map>
 #include <utility>
 #include <string>
+#include <time.h>
+#include <iostream>
 
 #include "planet.h"
 #include "solver.h"
@@ -16,54 +18,95 @@
 
 using namespace std;
 
-void initialize_planets(map<string,planet>&);
+void initialize_planets(map<string,planet>&, string);
 
-/*
- * 
+/**
+ * Calculates planetary trajectories of binary earth/sun system
+ * using euler and velocity verlet (vv) methods,
+ * trajectories of earth/jupiter/sun with vv method,
+ * and trajectories of all planets with vv method.
  */
 int main(int argc, char** argv) {
     double h = 0.01;
-    double n = 500;
+    double n = 25000;
     double t_f=n*h;
-    
-    //initialize all planets in map of ("name", planet) pairs
+    string system = "all";
     map<string,planet> solar_system;
-    initialize_planets(solar_system);
+    clock_t start, end;
     
-    //earth/sun system (euler)
-    solver binary_euler("Euler");
-    binary_euler.add_planet(solar_system["earth"]);
-    binary_euler.solve(n,h);
-    
-//    //earth/sun system (vv)
-//    solver binary_vv("VV");
-//    binary_vv.add_planet(solar_system["earth"]);
-//    binary_vv.solve(n,h);
-    
-//    //earth/jupiter/sun system (vv)
-//    solver threebody_vv("VV");
-//    threebody_vv.add_planet(solar_system["earth"]);
-//    threebody_vv.add_planet(solar_system["jupiter"]);
-//    threebody_vv.solve(n,h);
-    
-    //all solar system (vv)
-    solver vv("VV");
-    for(auto element : solar_system){
-        vv.add_planet(element.second);
-    }
-    vv.solve(n,h);
-    
-    
+    if(system=="binary"){
+        //use sun as origin
+        initialize_planets(solar_system,"sun");
+        
+        //earth/sun system (euler)
+        start=clock();
+        solver binary_euler("Euler","sun");
+        binary_euler.add_planet(solar_system["sun"]);
+        binary_euler.add_planet(solar_system["earth"]);
+        binary_euler.solve(n,h);
+        end=clock();
+        cout<<scientific<<"EULER METHOD CPU TIME (sec): "<<((double)end-(double)start)/CLOCKS_PER_SEC<<endl;
 
+        //earth/sun system (vv)
+        start=clock();
+        solver binary_vv("VV","sun");
+        binary_vv.add_planet(solar_system["sun"]);
+        binary_vv.add_planet(solar_system["earth"]);
+        binary_vv.solve(n,h);
+        end=clock();
+        cout<<scientific<<"VV METHOD CPU TIME (sec): "<<((double)end-(double)start)/CLOCKS_PER_SEC<<endl;
+    }
     
+    else if (system == "three"){
+        //use sun as origin
+        initialize_planets(solar_system,"sun");
+        
+        //earth/jupiter/sun system (vv)
+        solver threebody_vv("VV","sun");
+        threebody_vv.add_planet(solar_system["sun"]);
+        threebody_vv.add_planet(solar_system["earth"]);
+        threebody_vv.add_planet(solar_system["jupiter"]);
+        threebody_vv.solve(n,h);
+    }
+    
+    
+    else if (system == "all"){      
+        //use center of mass as origin
+        initialize_planets(solar_system,"cm");
+        
+        //all solar system (vv)
+        solver vv("VV","cm");
+        //need to add sun first
+        vv.add_planet(solar_system["sun"]);
+        for(auto element : solar_system){
+            if(element.first=="sun"){
+                continue;
+            }
+            vv.add_planet(element.second);
+        }
+        vv.solve(n,h);
+    }
+
     return 0;
 }
 
-void initialize_planets(map<string,planet>& system){
-    planet sun ("sun",1.0,
+/**
+ * Initialize all planets in solar system
+ * @param system solar system map of ("name",planet) pairs
+ * @param cm string to determine where the center of mass is
+ */
+void initialize_planets(map<string,planet>& system, string cm){
+    //initial conditions of sun depend on choice of center of mass (cm)
+    if(cm=="sun"){
+        planet sun ("sun",1.,0.,0.,0.,0.,0.,0.);
+        system["sun"] = sun;
+    }
+    else if (cm=="cm"){
+        planet sun("sun",1.0,
             3.137303325606177E-03,4.483475178057109E-03,-1.508511448592782E-04,
             -0.001266267226536104055,0.002402801570101757985,0.0000276711559511651086);
-    system["sun"] = sun;
+        system["sun"] = sun;
+    } 
     planet mercury("mercury",1.65E-7,
             5.666407744278721E-02,3.067013184352099E-01,1.963346515611241E-02,
             -12.1720980711493124,2.173776624892818855,1.294027164734853765);
@@ -71,6 +114,7 @@ void initialize_planets(map<string,planet>& system){
     planet venus("venus",2.45E-6,
             -7.152832287930488E-01,-2.576415475743124E-02,4.089080638421815E-02,
             0.2651635844731343065,-7.4062556378659788,-0.1169528340632723);
+    system["venus"] = venus;
     planet earth("earth",3E-6,
             -9.921659045836120E-01,-5.297464688174806E-02,-1.444074140071765E-04,
             0.256790253188838299,-6.29207466280881475,0.000500268555676713355);

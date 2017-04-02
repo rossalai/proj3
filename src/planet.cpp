@@ -8,6 +8,9 @@
 #include "planet.h"
 #include <cmath>
 
+/**
+ * Default initialization is sun w/ x=(0,0,0) v=(0,0,0)
+ */
 planet::planet() {
     this->name="sun";
     this->mass=1;
@@ -19,6 +22,17 @@ planet::planet() {
     this->v[2]=0;
 }
 
+/**
+ * Creates planet with following parameters
+ * @param name
+ * @param M (Mass/Msun)
+ * @param x (AU)
+ * @param y (AU)
+ * @param z (AU)
+ * @param vx (AU/yr)
+ * @param vy (AU/yr)
+ * @param vz (AU/yr)
+ */
 planet::planet(string name,double M,double x,double y,double z,double vx, double vy,double vz) {
     this->name=name;
     this->mass=M;
@@ -28,9 +42,14 @@ planet::planet(string name,double M,double x,double y,double z,double vx, double
     this->v[0]=vx;
     this->v[1]=vy;
     this->v[2]=vz;
-          
+
 }
 
+/**
+ * Calculates distance between planet and other_planet
+ * @param other_planet
+ * @return distance
+ */
 double planet::distance(planet other_planet){
     double x1,y1,z1,x2,y2,z2,xx,yy,zz;
     
@@ -53,14 +72,26 @@ double planet::distance(planet other_planet){
 planet::~planet() {
 }
 
+/**
+ * 
+ * @return mass of planet
+ */
 double planet::get_mass(){
     return this->mass;
 }
 
+/**
+ * 
+ * @return position array
+ */
 double* planet::get_position(){
     return this->x;
 }
     
+/**
+ * 
+ * @return velocity array
+ */
 double* planet::get_velocity(){
     return this->v;
 }
