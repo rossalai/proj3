@@ -1,0 +1,36 @@
+\begin{thebibliography}{4}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Clemence}(1947)}]{mercury}
+\bibinfo{author}{\bibfnamefont{G.~M.} \bibnamefont{Clemence}},
+  \bibinfo{journal}{Rev. Mod. Phys.} \textbf{\bibinfo{volume}{19}},
+  \bibinfo{pages}{361} (\bibinfo{year}{1947}).
+
+\bibitem[{\citenamefont{NASA}()}]{horizon}
+\bibinfo{author}{\bibnamefont{NASA}}, \emph{\bibinfo{title}{Horizon}}.
+
+\bibitem[{\citenamefont{WolframMathWorld}()}]{RK}
+\bibinfo{author}{\bibnamefont{WolframMathWorld}},
+  \emph{\bibinfo{title}{Runge-kutta method}}.
+
+\bibitem[{\citenamefont{Pal et~al.}(2014)\citenamefont{Pal, Agarwala, Raha, and
+  Bhattacharya}}]{omp}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Pal}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Agarwala}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Raha}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Bhattacharya}},
+  \bibinfo{journal}{Journal of Parallel and Distributed Computing}
+  \textbf{\bibinfo{volume}{74}}, \bibinfo{pages}{2203} (\bibinfo{year}{2014}).
+
+\end{thebibliography}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  24 MAR 2017 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 APR 2017 03:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -196,7 +196,7 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks24
 \verbatim@in@stream=\read1
 )
-No file solar_system.aux.
+(./solar_system.aux)
 \openout1 = `solar_system.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -216,6 +216,7 @@ Class revtex4 Info: cite was not loaded (OK!) on input line 11.
 Class revtex4 Info: multicol was not loaded (OK!) on input line 11.
 LaTeX Info: Redefining \celsius on input line 11.
 Package gensymb Info: Faking symbols for \degree and \celsius on input line 11.
+
 
 
 Package gensymb Warning: Not defining \perthousand.
@@ -289,30 +290,95 @@ e
 
 Class revtex4 Warning: Assuming \noaffiliation for Alaina\nobreakspace {}Ross.
 
-No file solar_system.bbl.
-[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./solar_system.aux)
+LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 43.
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<binary.pdf, id=16, 794.97pt x 614.295pt>
+File: binary.pdf Graphic file (type pdf)
+ <use binary.pdf>
+Package pdftex.def Info: binary.pdf used on input line 104.
+(pdftex.def)             Requested size: 262.34091pt x 202.71797pt.
 
+Overfull \hbox (16.34091pt too wide) in paragraph at lines 104--105
+ [][] 
+ []
 
- ) 
+<escape.pdf, id=17, 794.97pt x 614.295pt>
+File: escape.pdf Graphic file (type pdf)
+ <use escape.pdf>
+Package pdftex.def Info: escape.pdf used on input line 133.
+(pdftex.def)             Requested size: 262.34091pt x 202.71797pt.
+
+Overfull \hbox (16.34091pt too wide) in paragraph at lines 133--134
+ [][] 
+ []
+
+[2 <./binary.pdf, page is rotated 90 degrees> <./escape.pdf, page is rotated 90
+ degrees>] <three_mj.pdf, id=31, 794.97pt x 614.295pt>
+File: three_mj.pdf Graphic file (type pdf)
+ <use three_mj.pdf>
+Package pdftex.def Info: three_mj.pdf used on input line 142.
+(pdftex.def)             Requested size: 262.34091pt x 202.71797pt.
+
+Overfull \hbox (16.34091pt too wide) in paragraph at lines 142--143
+ [][] 
+ []
+
+<sun.pdf, id=32, 794.97pt x 614.295pt>
+File: sun.pdf Graphic file (type pdf)
+ <use sun.pdf>
+Package pdftex.def Info: sun.pdf used on input line 152.
+(pdftex.def)             Requested size: 262.34091pt x 202.71797pt.
+
+Overfull \hbox (16.34091pt too wide) in paragraph at lines 152--153
+ [][] 
+ []
+
+<all2.pdf, id=33, 794.97pt x 614.295pt>
+File: all2.pdf Graphic file (type pdf)
+ <use all2.pdf>
+Package pdftex.def Info: all2.pdf used on input line 165.
+(pdftex.def)             Requested size: 262.34091pt x 202.71797pt.
+
+Overfull \hbox (16.34091pt too wide) in paragraph at lines 165--166
+ [][] 
+ []
+
+[3 <./three_mj.pdf, page is rotated 90 degrees> <./sun.pdf, page is rotated 90 
+degrees> <./all2.pdf, page is rotated 90 degrees>] (./solar_system.bbl)
+[4] (./solar_system.aux) ) 
 Here is how much of TeX's memory you used:
- 4014 strings out of 493089
- 52331 string characters out of 6134842
- 120057 words of memory out of 5000000
- 7465 multiletter control sequences out of 15000+600000
- 4852 words of font info for 18 fonts, out of 8000000 for 9000
+ 4125 strings out of 493089
+ 53781 string characters out of 6134842
+ 141393 words of memory out of 5000000
+ 7547 multiletter control sequences out of 15000+600000
+ 9699 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,5n,26p,825b,133s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on solar_system.pdf (1 page, 47393 bytes).
+ 38i,9n,26p,987b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pf
+b>
+Output written on solar_system.pdf (4 pages, 850339 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
- 16 compressed objects within 1 object stream
+ 91 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
