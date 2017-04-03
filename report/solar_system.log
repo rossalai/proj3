@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 APR 2017 03:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 APR 2017 12:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -343,10 +343,10 @@ Overfull \hbox (16.34091pt too wide) in paragraph at lines 152--153
 <all2.pdf, id=33, 794.97pt x 614.295pt>
 File: all2.pdf Graphic file (type pdf)
  <use all2.pdf>
-Package pdftex.def Info: all2.pdf used on input line 165.
+Package pdftex.def Info: all2.pdf used on input line 162.
 (pdftex.def)             Requested size: 262.34091pt x 202.71797pt.
 
-Overfull \hbox (16.34091pt too wide) in paragraph at lines 165--166
+Overfull \hbox (16.34091pt too wide) in paragraph at lines 162--163
  [][] 
  []
 
@@ -354,10 +354,10 @@ Overfull \hbox (16.34091pt too wide) in paragraph at lines 165--166
 degrees> <./all2.pdf, page is rotated 90 degrees>] (./solar_system.bbl)
 [4] (./solar_system.aux) ) 
 Here is how much of TeX's memory you used:
- 4125 strings out of 493089
- 53781 string characters out of 6134842
- 141393 words of memory out of 5000000
- 7547 multiletter control sequences out of 15000+600000
+ 4126 strings out of 493089
+ 53792 string characters out of 6134842
+ 142393 words of memory out of 5000000
+ 7548 multiletter control sequences out of 15000+600000
  9699 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,9n,26p,987b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -375,7 +375,7 @@ r9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
 pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pf
 b>
-Output written on solar_system.pdf (4 pages, 850339 bytes).
+Output written on solar_system.pdf (4 pages, 850592 bytes).
 PDF statistics:
  91 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream

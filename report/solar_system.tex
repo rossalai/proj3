@@ -59,13 +59,13 @@ where $r_i$ is the distance between planets $p$ and $i$. Then, the equations of 
 
 %As the range of masses of the planets in the solar system is far larger than the range of distances, the sun and the largest planets should have the greatest effects on the orbits of the others bodies. 
 
-While the gravitational potential binds the system, there is a point at which the kinetic energy of the body is large enough to escape the gravitational potential. This is known as the escape velocity, and it is given by:
+While the gravitational potential binds the system, there is a point at which the kinetic energy of the body is large enough to escape the gravitational pull. This is known as the escape velocity, and it is given by:
 \begin{equation}
 \frac{1}{2}mv^2\geq \frac{GMm}{r^2} \rightarrow v_{e}=\sqrt{\frac{GM}{r}}.
 \end{equation}
 Then, in order to keep our system realistic and bounded, it is important that realistic initial conditions are used for each planet. To accomplish this we use the HORIZON system from the Jet Propulsion Lab at NASA~\cite{horizon}.
 
-In this work, we implement the Euler method and the velocity Verlet method to solve the above coupled differential equations for varying number of planets. In addition, the accuracy and stability of the algorithms are investigated along with the performance. In Section \ref{methods}, the implementation of the algorithma are described. In Section ~\ref{results} the performance and accuracy of the code are analyzed. Finally, in Section \ref{conc} we give a summary and our conclusions.
+In this work, we implement the Euler method and the velocity Verlet method to solve the above coupled differential equations for varying number of planets. In addition, the accuracy and stability of the algorithms are investigated along with the performance. In Section \ref{methods}, the implementation of the algorithms are described. In Section ~\ref{results} the performance and accuracy of the code are analyzed. Finally, in Section \ref{conc} we give a summary and our conclusions.
 
 
 \section{methods}
@@ -75,7 +75,7 @@ The first method employed to solve the differential equations is the Euler metho
 \begin{equation}
 x_{i+1}= x(t_i)+h\left[x (t_i)+ ... + x^{(p)}(t_i)\frac{h^{p-1}}{p!}\right] + O(h^{p+1})
 \end{equation}
-where h is the step size. Truncating the term in square brackets to the first term gives:
+where $h$ is the step size. Truncating the term in square brackets to the first term gives:
 \begin{gather}
 x_{i+1}= x(t_i)+hx'_i+O(h^2).
 \end{gather}
@@ -127,7 +127,7 @@ Time to solution (sec)&0.164&0.488\\
 \end{table}
 As there is no torque exerted on the Earth, we expect that both energy and angular momentum should be conserved. To view this in our algorithms, we calculate the percent difference in the energy and angular momentum (L) over the course of the calculation. The results of this calculation are shown in Table~\ref{nrg}. Here we again see that the Verlet performs as expected, causing less than a half a percent change, while the Euler method causes 15-20\% changes in the given time span.
 
-Finally, we inspect the performance of each of the algorithms via the time to solution. These are also given in Table~\ref{nrg}. While the Verlet algorithm is almost three times slower than the Euler, both times are so small that the difference is negligible. As we have shown the Euler method to be inferior to the velocity Verlet, all further calculations are done with the latter method only.
+Finally, we inspect the performance of each of the algorithms via the time to solution, which are also given in Table~\ref{nrg}. While the Verlet algorithm is almost three times slower than the Euler, both times are so small that the difference is negligible. As we have shown the Euler method to be inferior to the velocity Verlet, all further calculations are done with the latter method only.
 
 \begin{figure}[b]
 \includegraphics[scale=0.33]{escape.pdf}
@@ -154,20 +154,28 @@ Up until now, all calculations have been performed with the sun held fixed, howe
 \label{sun}
 \end{figure}
 
-Allowing the sun to move and now including all planets in the solar system, we calculate the trajectories for each planet and show them in Figure~\ref{all}. The orange dots show the position of the sun (which appears as one dot as the trajectory is too small to be resolved), the black line corresponds to the position of Mercury, the yellow line shows Venus, the green line Earth, the blue line Mars, the brown line Jupiter, the magenta line Saturn, the red line Uranus, the purple line Neptune, and the cyan line Pluto. The inset of the plot shows the smaller orbits with more detail. The distance between each planet and the sun is compared to the expected value in Table~\ref{comp}.
+Allowing the sun to move and now including all planets in the solar system, we calculate the trajectories for each planet and show them in Figure~\ref{all}. The orange dots show the position of the sun (which appears as one dot as the trajectory is too small to be resolved), the black line corresponds to the position of Mercury, the yellow line shows Venus, the green line Earth, the blue line Mars, the brown line Jupiter, the magenta line Saturn, the red line Uranus, the purple line Neptune, and the cyan line Pluto. The inset of the plot shows the smaller orbits with more detail. 
 
-\section{conclusions}
-\label{conc}
+The distance between each planet and the sun is compared to the expected value in Table~\ref{comp}. Here we see that the even the largest difference is still under 2\%, while in most cases the differences are closer to 0.5\%. This shows that not only is our method stable, it is also accurate.
 
-In summary, the goal of this work was to calculate %numerically the paths of the planets in the solar system using Newton's law of gravitation. Two methods to calculate the differential equations were used, namely, the Euler method and the velocity Verlet method.
-
-\begin{figure}[h]
+\begin{figure}[b]
 \includegraphics[scale=0.33]{all2.pdf}
 \caption{Path of all planets in the solar system around the center of mass. The inset shows the paths of the smaller orbits.}
 \label{all}
 \end{figure}
 
-\begin{table}[t]
+\section{conclusions}
+\label{conc}
+
+In summary, the goal of this work was to calculate numerically the paths of the planets in the solar system using Newton's law of gravitation. Two methods to calculate the differential equations were used, namely, the Euler method and the velocity Verlet method.
+
+The Euler method was shown to be unstable in calculating the Earth's orbit in a system which only contained the Earth and sun. In contrast, the Verlet method was stable for practically all step sizes. While the Verlet method was slower, both methods took under one second for a five year simulation, so the difference in timing was negligible. In addition, with the Verlet method we show the importance of the correct initial conditions, as too large of a velocity could cause the system to become unbound.
+
+Next, we include Jupiter in the model, and explore the dependance of Earth's trajectory on the mass of Jupiter. The calculations are first performed with the physical mass of Jupiter and then with a mass 10 times larger and then 100 times. In all cases the final trajectories were indistinguishable, showing that the sun has the more substantial effect on the orbit of the planets.
+
+There are a number of ways that our code can be improved upon, for example there are more algorithms that could have been explored, such as the Runge-Kutta method~\cite{RK}, which could prove to be more efficient. In addition, the precession of Mercury is known to be incorrect when only newtonian mechanics are considered, so an approximation of the effects of general relativity could be employed to correct for the differences.
+
+\begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -187,14 +195,7 @@ Pluto&39.53& 39.790\\
 \caption{Comparison of expected and calculated distance from the sun.}
 \label{comp}
 \end{table}
-
-\noindent numerically the paths of the planets in the solar system using Newton's law of gravitation. Two methods to calculate the differential equations were used, namely, the Euler method and the velocity Verlet method.
-
-The Euler method was shown to be unstable in calculating the Earth's orbit in a system which only contained the Earth and sun. In contrast, the Verlet method was stable for practically all step sizes. While the Verlet method was slower, both methods took under one second, so the difference in timing was negligible. In addition, with the Verlet method we show the importance of the correct initial conditions, as too large of a velocity could cause the system to become unbound.
-
-Next, we include Jupiter in the model, and explore the dependance of Earth's trajectory on the mass of Jupiter. The calculations are first performed with the physical mass of Jupiter and then with a mass 10 times larger and then 100 times. In all cases the final trajectories were indistinguishable, showing that the sun has the more substantial effect on the orbit of the planets.
-
-There are a number of ways that our code can be improved upon, for example there are more algorithms that could have been explored, such as the Runge-Kutta method~\cite{RK}, which could prove to be more efficient. In addition, the precession of Mercury is known to be incorrect when only newtonian mechanics are considered, so an approximation of the effects of general relativity could be employed to correct for the differences. Finally, while the computation time for these examples were small, as moons and other various celestial bodies are added there may be a point in which parallelization of the Verlet algorithm as done in~\cite{omp} with OpenMP and MPI could be helpful. Although, it should be noted that this particular problem includes quite a bit of I/O manipulation, which would require additional effort.
+ Finally, while the computation time for these examples were small, as moons and other various celestial bodies are added there may be a point in which parallelization of the Verlet algorithm as done in~\cite{omp} with OpenMP and MPI could be helpful. Although, it should be noted that this particular problem includes quite a bit of I/O manipulation, which would require additional effort.
 
 Overall, we have demonstrated that using Newton's law of gravitation rather than general relativity yields fairly accurate results for the motion of the planets in our solar system. In addition, we have shown that the velocity Verlet algorithm is robust, especially for the chosen application. Finally, these results illustrate the importance of choosing the right tool for the job, as the Euler method failed to produce stable results for even the simplest of cases.
 
